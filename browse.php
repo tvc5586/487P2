@@ -11,14 +11,6 @@
 		 </form>';
 		?>
 		
-		<?php echo 
-		'<form method="post"> 
-		 <input type="submit" name="searchID" value="Search by ID"/> 
-         <input type="submit" name="searchKeyword" value="Search by Keyword"/>
-		 : <input type="text" name="word"><br>		 
-		 </form>';
-		?>
-		
 		<?php
 			$servername = "localhost";
 			$username = "root";
@@ -38,14 +30,6 @@
 				} 
 				if(isset($_POST['sortName'])) {
 					$sql = "SELECT id, name, description, image_link FROM item ORDER BY name";
-				}
-				if(isset($_POST['searchID'])) {
-					$word = $_POST['word'];
-					$sql = "SELECT id, name, description, image_link FROM item WHERE id = '$word'";
-				}
-				if(isset($_POST['searchKeyword'])) {
-					$word = $_POST['word'];
-					$sql = "SELECT id, name, description, image_link FROM item WHERE LIKE '%$word%' OR description LIKE '%$word%'";
 				} else {
 					$sql = "SELECT id, name, description, image_link FROM item";
 				}
